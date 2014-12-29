@@ -1,0 +1,27 @@
+<nav>
+	<div class="nav__top">
+		<h1>{{ .Site.Params.Subtitle }}</h1>
+		<a href="/" class="nav__page hide-underscore">
+			<i class="fa fa-home fa-lg"></i>
+		</a>
+	</div>
+	<div class="nav__middle">
+
+		<div class="nav__tags">
+			{{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+			<a href="/tags/{{ $name | urlize }}" class="nav__tag">{{ $name }}</a>
+			{{ end }}
+		</div>
+	</div>
+	<div class="nav__bottom">
+		<div class="nav__links">
+			<a href="http://github.com/bcoop713" class="hide-underscore">
+				<i class="fa fa-lg fa-github"></i>
+			</a>
+			<a href="http://twitter.com/bcoop713" class="hide-underscore">
+				<i class="fa fa-lg fa-twitter"></i>
+			</a>
+		</div>
+		<p class="nav__greeting">{{ .Site.Params.Greeting }}</p>	
+	</div>
+</nav>

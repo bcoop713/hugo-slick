@@ -1,0 +1,8 @@
+<div class="post__details">
+	<div class="post__date">{{ .Date.Format "Mon, Jan 2, 2006" }}</div>
+	<ul class="post__tags">
+	{{ range .Params.tags }}
+		<li class="post__tag"><a href="/tags/{{ . | urlize }}">{{ . }}</a> </li>
+	{{ end }}
+	</ul>
+</div>

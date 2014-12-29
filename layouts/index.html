@@ -1,0 +1,38 @@
+{{ partial "head.html" .}}
+
+<body>
+	<div class="container">
+		{{ partial "sidebar.html" .}}
+
+		<main>
+			<div class="content">
+				<div class="posts">
+					{{ range .Data.Pages }}
+					<div class="post">
+						<h1 class="post__title">
+							<a href="{{ .Permalink }}">
+								{{ .Title | title}}
+							</a>
+						</h1>
+						{{ partial "post__details.html" .}}
+						{{ .Summary }}
+						<a href="{{ .Permalink }}">Read More.</a>
+					</div>
+					{{ end }}
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script type="text/javascript">
+	var mq = window.matchMedia('all and (max-width: 500px)');
+	var h = Math.max(document.documentElement.clientHeight, window.innerHeight || 0)
+	if(mq.matches) {
+	    window.scrollTo(0, h);
+	    console.log(h);
+	} else {
+	    // the width of browser is less then 700px
+	}
+	</script>
+</body>
+</html>
